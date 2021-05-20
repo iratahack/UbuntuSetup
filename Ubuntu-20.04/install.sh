@@ -4,12 +4,10 @@
 sudo apt update
 sudo apt upgrade -y
 
-# Setup the machine ID
-sudo systemd-machine-id-setup
-
 # Install the required packages and desktop environment
+sudo apt install -y systemd
 sudo apt install -y tasksel flatpak
-sudo apt install -y build-essential git-lfs dos2unix libboost-all-dev texinfo texi2html libxml2-dev subversion bison flex zlib1g-dev m4
+sudo apt install -y build-essential git-lfs vim dos2unix libboost-all-dev texinfo texi2html libxml2-dev subversion bison flex zlib1g-dev m4
 sudo apt install -y ubuntu-mate-desktop
 sudo apt install -y tigervnc-standalone-server autocutsel
 sudo apt install -y imagemagick
