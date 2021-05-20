@@ -48,14 +48,13 @@ then
 	echo "export PATH=/mnt/c/Program\ Files\ \(x86\)/Fuse:\${PATH}" >> ~/.z88dkrc
 	
 	echo ". ~/.z88dkrc" >> ~/.bashrc
-else
-	. .z88dkrc
 fi
 
 # Install and build z88dk from source
 if [ ! -e ~/z88dk ]
 then
 	cd ~
+	. .z88dkrc
 	git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git
 	cd z88dk
 	./build.sh
