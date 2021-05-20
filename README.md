@@ -4,7 +4,6 @@ Scripts to configure a minimal installation of Ubuntu for WSL2. This script shou
 
 ```
 apt update
-unminimize
 adduser --uid xxxx USERNAME
 apt install -y sudo git
 echo "USERNAME  ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/USERNAME
