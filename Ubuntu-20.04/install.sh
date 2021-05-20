@@ -4,6 +4,11 @@
 sudo apt update
 sudo apt upgrade -y
 
+if [ -e /usr/local/sbin/unminimize ]
+then
+	sudo /usr/local/sbin/unminimize
+fi
+
 # Install the required packages and desktop environment
 sudo apt install -y systemd
 sudo apt install -y tasksel flatpak
