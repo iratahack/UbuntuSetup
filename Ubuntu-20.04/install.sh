@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Cleanup the PATH by removing all paths beginning with /mnt/c
+export PATH=`echo $PATH | sed "s/\(^\|:\)\/mnt\/c[^:]*//g" | sed "s/^://g"`
+echo "PATH = $PATH"
+
 # Update/upgrade the currently installed packages
 sudo apt update
 sudo apt upgrade -y
@@ -34,13 +38,18 @@ chmod +x ~/.vnc/xstartup
 # If not already done, setup the environment file for z88dk
 if [ ! -e ~/.z88dkrc ]
 then
+	echo "echo \$PATH | grep z88dk > /dev/null" > ~/.z88dkrc
+	echo "if [ \$? != 0 ]" >> ~/.z88dkrc
+	echo "then" >> ~/.z88dkrc
+
 	# Setup env for z88dk in .bashrc
-	echo "export Z88DK=\${HOME}/z88dk" > ~/.z88dkrc
-	echo "export ZCCCFG=\${Z88DK}/lib/config" >> ~/.z88dkrc
-	echo "export PATH=\${Z88DK}/bin:\$PATH" >> ~/.z88dkrc
-	echo "export BUILD_SDCC=1" >> ~/.z88dkrc
-	echo "export PATH=\${HOME}/Tiled:\${PATH}" >> ~/.z88dkrc
-	echo "export PATH=/mnt/c/Program\ Files\ \(x86\)/Fuse:\${PATH}" >> ~/.z88dkrc
+	echo "    export Z88DK=\${HOME}/z88dk" >> ~/.z88dkrc
+	echo "    export ZCCCFG=\${Z88DK}/lib/config" >> ~/.z88dkrc
+	echo "    export PATH=\${Z88DK}/bin:\$PATH" >> ~/.z88dkrc
+	echo "    export BUILD_SDCC=1" >> ~/.z88dkrc
+	echo "    export PATH=\${HOME}/Tiled:\${PATH}" >> ~/.z88dkrc
+	echo "    export PATH=/mnt/c/Program\ Files\ \(x86\)/Fuse:\${PATH}" >> ~/.z88dkrc
+	echo "fi" >> ~/.z88dkrc
 	
 	echo ". ~/.z88dkrc" >> ~/.bashrc
 fi
@@ -52,7 +61,7 @@ then
 	. .z88dkrc
 	git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git
 	cd z88dk
-	./build.sh
+	./build.sh -p zx
 	ln -s ~/z88dk/src/z80asm/asmstyle.pl ~/z88dk/bin
 	cd ~
 fi
