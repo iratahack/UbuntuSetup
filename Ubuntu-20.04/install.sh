@@ -62,7 +62,6 @@ then
 	git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git
 	cd z88dk
 	./build.sh -p zx
-	ln -s ~/z88dk/src/z80asm/asmstyle.pl ~/z88dk/bin
 	cd ~
 fi
 
