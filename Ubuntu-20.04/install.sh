@@ -46,7 +46,6 @@ then
 	echo "    export Z88DK=\${HOME}/z88dk" >> ~/.z88dkrc
 	echo "    export ZCCCFG=\${Z88DK}/lib/config" >> ~/.z88dkrc
 	echo "    export PATH=\${Z88DK}/bin:\$PATH" >> ~/.z88dkrc
-	echo "    export BUILD_SDCC=1" >> ~/.z88dkrc
 	echo "    export PATH=\${HOME}/Tiled:\${PATH}" >> ~/.z88dkrc
 	echo "    export PATH=/mnt/c/Program\ Files\ \(x86\)/Fuse:\${PATH}" >> ~/.z88dkrc
 	echo "fi" >> ~/.z88dkrc
