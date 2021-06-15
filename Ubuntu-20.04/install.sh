@@ -2,7 +2,7 @@
 
 function install_desktop() {
 	# Install desktop environment
-	sudo apt install -y ubuntu-mate-desktop
+	sudo apt install -y ubuntu-mate-desktop^
 	sudo apt install -y tigervnc-standalone-server autocutsel
 	sudo apt install -y imagemagick
 
@@ -63,11 +63,17 @@ export PATH=`echo $PATH | sed "s/\(^\|:\)\/mnt\/c[^:]*//g" | sed "s/^://g"`
 echo "PATH = $PATH"
 
 # Update/upgrade the currently installed packages
-sudo apt update
-sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
+
+if [ -e /usr/local/sbin/unminimize ]
+then
+	/usr/local/sbin/unminimize
+fi
+
+sudo apt install standard^
 
 # Install the required packages
-sudo apt install -y systemd snapd build-essential cpanminus wget ccache git-lfs vim dos2unix libboost-all-dev texinfo texi2html libxml2-dev subversion bison flex zlib1g-dev m4
+sudo apt install -y build-essential cpanminus ccache git git-lfs vim dos2unix libboost-all-dev texinfo texi2html libxml2-dev subversion bison flex zlib1g-dev m4
 
 #Install required perl modules for z88dk
 sudo cpanm -n App::Prove Modern::Perl Capture::Tiny Capture::Tiny::Extended Path::Tiny File::Path Template Template::Plugin::YAML Test::Differences CPU::Z80::Assembler Test::HexDifferences Data::HexDump Object::Tiny::RW Regexp::Common List::Uniq Text::Table Iterator::Simple Iterator::Simple::Lookahead
