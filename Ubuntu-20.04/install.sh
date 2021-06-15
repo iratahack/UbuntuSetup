@@ -67,7 +67,7 @@ sudo apt update && sudo apt upgrade -y
 
 if [ -e /usr/local/sbin/unminimize ]
 then
-	/usr/local/sbin/unminimize
+	sudo /usr/local/sbin/unminimize
 fi
 
 sudo apt install standard^
