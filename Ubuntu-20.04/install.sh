@@ -5,6 +5,7 @@ function install_desktop() {
 	sudo apt install -y ubuntu-mate-desktop^
 	sudo apt install -y tigervnc-standalone-server autocutsel
 	sudo apt install -y imagemagick
+	sudo apt install -y fuse-emulator-gtk
 
 	# Install Google Chrome
 	rm -f google-chrome-stable_current_amd64.deb
@@ -15,7 +16,6 @@ function install_desktop() {
 	# Install the GIMP
 	sudo apt install -y tasksel flatpak
 	sudo flatpak install -y https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
-
 	# Configure xstartup for vncserver
 	mkdir -p ~/.vnc
 	echo "#!/bin/bash" > ~/.vnc/xstartup
