@@ -72,6 +72,8 @@ fi
 
 sudo apt install -y standard^
 
+sudo apt install -y daemonize dbus-user-session fontconfig
+
 # Install the required packages
 sudo apt install -y build-essential cpanminus ccache git git-lfs vim dos2unix libboost-all-dev texinfo texi2html libxml2-dev subversion bison flex zlib1g-dev m4
 
