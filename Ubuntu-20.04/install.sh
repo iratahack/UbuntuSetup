@@ -70,7 +70,7 @@ then
 	sudo /usr/local/sbin/unminimize
 fi
 
-sudo apt install standard^
+sudo apt install -y standard^
 
 # Install the required packages
 sudo apt install -y build-essential cpanminus ccache git git-lfs vim dos2unix libboost-all-dev texinfo texi2html libxml2-dev subversion bison flex zlib1g-dev m4
